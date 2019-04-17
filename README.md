@@ -1,4 +1,4 @@
-React Pomodoro Timer
+## React Pomodoro Timer
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
