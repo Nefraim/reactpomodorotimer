@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
+import VolOn from './vol.png';
+import VolOff from './voloff.png';
+
 
 export default class Sound extends Component {
-  toggleSound = () => {
+
+
+  toggleSound = (e) => {
     this.props.sound === "on" ?
-    this.props.setSound("off") :
-    this.props.setSound("on")
+    this.changeSoundAttributes("off",
+      VolOff, e) :
+    this.changeSoundAttributes("on",
+      VolOn, e)
   }
 
+  changeSoundAttributes = ( toggle, src, e) => {
+      this.props.setSound(toggle)
+      e.target.src = src
+  }
 
   render() {
     return (
-      <div>
-        <button onClick={this.toggleSound}>SOUND</button>
-      </div>
+        <button
+         onClick={(e) => {
+           this.toggleSound(e)}}>
+        <img style={{width:"30px"}} src={VolOn}/>
+        </button>
     )
   }
 }
